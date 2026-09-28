@@ -4,20 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Corinthians — História e Paixão</title>
+    <title>Corinthians | Fiel desde 1910</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-        :root {
-            --black: #080808;
-            --black-2: #101010;
-            --black-3: #171717;
-            --white: #f5f5f5;
-            --gray: #a4a4a4;
-            --line: #292929;
-            --accent: #ffffff;
-        }
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             margin: 0;
@@ -30,10 +23,10 @@
         }
 
         body {
-            background: var(--black);
-            color: var(--white);
-            font-family: "Inter", Arial, sans-serif;
-            line-height: 1.6;
+            background: #080808;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
         }
 
         a {
@@ -41,453 +34,769 @@
             text-decoration: none;
         }
 
-        /* =========================
+
+        /* =====================================================
+           CORES
+        ===================================================== */
+
+        :root {
+            --preto: #080808;
+            --preto-2: #111111;
+            --preto-3: #191919;
+            --branco: #ffffff;
+            --cinza: #a6a6a6;
+            --cinza-2: #5f5f5f;
+            --vermelho: #c90000;
+            --linha: #292929;
+        }
+
+
+        /* =====================================================
+           BARRA SUPERIOR
+        ===================================================== */
+
+        .topbar {
+            height: 34px;
+            background: #050505;
+            border-bottom: 1px solid #222;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            color: #777;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
            HEADER
-        ========================= */
+        ===================================================== */
 
         header {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
             z-index: 10;
-            padding: 28px 6%;
+
+            width: 100%;
+            height: 90px;
+
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.12);
+
+            padding: 0 6%;
+
+            border-bottom: 1px solid rgba(255,255,255,.15);
         }
 
-        .logo {
+        .marca {
             display: flex;
             align-items: center;
-            gap: 13px;
+            gap: 15px;
         }
 
-        .logo-symbol {
-            width: 38px;
-            height: 38px;
+        .mini-escudo {
+            width: 44px;
+            height: 44px;
+
             border: 2px solid white;
             border-radius: 50%;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 13px;
+
+            position: relative;
+
+            font-size: 7px;
             font-weight: 900;
+            text-align: center;
+
+            letter-spacing: .5px;
         }
 
-        .logo-text {
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: 2px;
+        .mini-escudo::after {
+            content: "1910";
+
+            position: absolute;
+            bottom: 6px;
+
+            font-size: 6px;
+            color: #aaa;
+        }
+
+        .marca strong {
+            font-size: 14px;
+            letter-spacing: 3px;
         }
 
         nav {
             display: flex;
-            gap: 36px;
+            gap: 35px;
         }
 
         nav a {
-            font-size: 12px;
+            position: relative;
+
+            color: #ddd;
+
+            font-size: 11px;
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #c8c8c8;
-            transition: color .25s ease;
+
+            transition: .3s;
+        }
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--vermelho);
+
+            transition: .3s;
         }
 
         nav a:hover {
             color: white;
         }
 
-        /* =========================
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
-            min-height: 100vh;
+            min-height: 850px;
+
             position: relative;
+
             display: flex;
-            align-items: flex-end;
+            align-items: center;
+
             overflow: hidden;
 
             background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.96) 0%,
-                    rgba(0,0,0,.75) 42%,
-                    rgba(0,0,0,.30) 100%
+                radial-gradient(
+                    circle at 80% 45%,
+                    rgba(255,255,255,.08),
+                    transparent 25%
                 ),
                 linear-gradient(
-                    0deg,
-                    rgba(0,0,0,.9) 0%,
-                    transparent 55%
-                ),
-                url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2000&q=85");
+                    110deg,
+                    #050505 0%,
+                    #0d0d0d 48%,
+                    #151515 100%
+                );
+        }
 
-            background-size: cover;
-            background-position: center;
+
+        /* Faixas diagonais */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 750px;
+            height: 1200px;
+
+            right: -280px;
+            top: -150px;
+
+            background:
+                repeating-linear-gradient(
+                    -55deg,
+                    transparent 0px,
+                    transparent 75px,
+                    rgba(255,255,255,.035) 76px,
+                    rgba(255,255,255,.035) 150px
+                );
+
+            transform: rotate(7deg);
+        }
+
+
+        /* Círculo decorativo */
+
+        .hero::after {
+            content: "1910";
+
+            position: absolute;
+
+            right: 6%;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 390px;
+            height: 390px;
+
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: rgba(255,255,255,.04);
+
+            font-size: 130px;
+            font-weight: 900;
         }
 
         .hero-content {
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 6% 100px;
+            width: 88%;
+            max-width: 1250px;
+
+            margin: auto;
+
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-label {
-            display: inline-flex;
+        .hero-small {
+            display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 22px;
-            color: #d0d0d0;
+
+            color: #aaa;
+
             font-size: 11px;
-            font-weight: 700;
+            font-weight: bold;
+
             text-transform: uppercase;
             letter-spacing: 3px;
+
+            margin-bottom: 25px;
         }
 
-        .hero-label::before {
-            content: "";
+        .hero-small span {
             width: 35px;
-            height: 1px;
-            background: white;
+            height: 2px;
+
+            background: var(--vermelho);
         }
 
         .hero h1 {
-            max-width: 800px;
-            font-size: clamp(58px, 9vw, 128px);
-            line-height: .88;
-            font-weight: 900;
+            max-width: 850px;
+
+            font-size: clamp(60px, 9vw, 125px);
+
+            line-height: .82;
+
             letter-spacing: -7px;
+
             text-transform: uppercase;
+
+            font-weight: 900;
         }
 
-        .hero-description {
-            max-width: 510px;
-            margin-top: 30px;
-            color: #c5c5c5;
+        .hero h1 em {
+            color: #777;
+            font-style: normal;
+        }
+
+        .hero-text {
+            max-width: 520px;
+
+            margin-top: 35px;
+
+            color: #aaa;
+
             font-size: 15px;
             line-height: 1.8;
         }
 
-        .hero-bottom {
+        .hero-buttons {
             display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-top: 38px;
+            gap: 15px;
+
+            margin-top: 35px;
         }
 
-        .hero-button {
-            display: inline-block;
-            padding: 15px 24px;
+        .btn {
+            padding: 16px 26px;
+
+            font-size: 10px;
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            transition: .3s;
+        }
+
+        .btn-primary {
             background: white;
             color: black;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: .25s;
         }
 
-        .hero-button:hover {
-            background: #dcdcdc;
-        }
-
-        .hero-outline {
-            display: inline-block;
-            padding: 14px 24px;
-            border: 1px solid rgba(255,255,255,.4);
+        .btn-primary:hover {
+            background: var(--vermelho);
             color: white;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: .25s;
         }
 
-        .hero-outline:hover {
-            background: rgba(255,255,255,.1);
+        .btn-secondary {
+            border: 1px solid #444;
+            color: white;
         }
 
-        /* =========================
-           CONTAINER
-        ========================= */
-
-        .container {
-            width: min(1200px, 88%);
-            margin: auto;
+        .btn-secondary:hover {
+            border-color: white;
         }
 
-        /* =========================
-           STATS
-        ========================= */
 
-        .stats {
-            background: #fff;
+        /* =====================================================
+           FAIXA
+        ===================================================== */
+
+        .faixa {
+            height: 9px;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    #fff 0px,
+                    #fff 90px,
+                    #080808 90px,
+                    #080808 180px
+                );
+        }
+
+
+        /* =====================================================
+           NÚMEROS
+        ===================================================== */
+
+        .numeros {
+            background: white;
             color: #080808;
+
             display: grid;
             grid-template-columns: repeat(4, 1fr);
         }
 
-        .stat {
-            padding: 42px 35px;
-            border-right: 1px solid #dedede;
+        .numero {
+            padding: 45px 35px;
+
+            border-right: 1px solid #ddd;
         }
 
-        .stat:last-child {
-            border-right: none;
+        .numero:last-child {
+            border: none;
         }
 
-        .stat-number {
-            font-size: 44px;
-            line-height: 1;
+        .numero strong {
+            display: block;
+
+            font-size: 45px;
             font-weight: 900;
-            letter-spacing: -2px;
+
+            letter-spacing: -3px;
         }
 
-        .stat-title {
-            margin-top: 10px;
+        .numero span {
+            display: block;
+
+            margin-top: 8px;
+
+            color: #666;
+
             font-size: 10px;
-            font-weight: 700;
+            font-weight: bold;
+
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #666;
         }
 
-        /* =========================
-           SECTION
-        ========================= */
+
+        /* =====================================================
+           SEÇÕES
+        ===================================================== */
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+
+            margin: auto;
+        }
 
         section {
             padding: 120px 0;
         }
 
-        .section-header {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            margin-bottom: 65px;
+        .section-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            margin-bottom: 70px;
         }
 
         .section-number {
-            color: #777;
+            color: var(--vermelho);
+
             font-size: 11px;
-            font-weight: 700;
+            font-weight: bold;
+
             letter-spacing: 2px;
         }
 
         .section-title {
-            font-size: clamp(36px, 5vw, 64px);
-            line-height: 1;
-            letter-spacing: -3px;
-            font-weight: 800;
+            max-width: 700px;
+
+            font-size: clamp(40px, 5vw, 70px);
+
+            line-height: .95;
+
+            letter-spacing: -4px;
+
+            text-transform: uppercase;
         }
 
-        .section-intro {
-            margin-top: 20px;
-            max-width: 600px;
-            color: var(--gray);
-            font-size: 15px;
+        .section-description {
+            max-width: 400px;
+
+            color: #888;
+
+            font-size: 14px;
+            line-height: 1.8;
         }
 
-        /* =========================
+
+        /* =====================================================
            HISTÓRIA
-        ========================= */
+        ===================================================== */
 
-        .history {
-            background: var(--black-2);
+        .historia {
+            background: var(--preto-2);
         }
 
-        .history-grid {
+        .historia-grid {
             display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 90px;
-            align-items: start;
+
+            grid-template-columns: 1.3fr .7fr;
+
+            gap: 100px;
         }
 
-        .history-text p {
-            color: #bcbcbc;
+        .historia-principal {
+            border-left: 3px solid var(--vermelho);
+
+            padding-left: 35px;
+        }
+
+        .historia-principal p {
+            color: #bbb;
+
             font-size: 16px;
-            line-height: 1.9;
-            margin-bottom: 22px;
+            line-height: 2;
+
+            margin-bottom: 25px;
         }
 
-        .history-text p:first-child {
+        .historia-principal p:first-child {
             color: white;
-            font-size: 21px;
+
+            font-size: 22px;
             line-height: 1.6;
         }
 
-        .history-side {
-            border-top: 1px solid var(--line);
+        .linha-do-tempo {
+            border-top: 1px solid var(--linha);
         }
 
-        .timeline-item {
-            padding: 25px 0;
-            border-bottom: 1px solid var(--line);
+        .tempo {
             display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 20px;
+            grid-template-columns: 80px 1fr;
+
+            padding: 23px 0;
+
+            border-bottom: 1px solid var(--linha);
         }
 
-        .timeline-year {
-            color: #777;
+        .tempo strong {
+            color: white;
             font-size: 13px;
-            font-weight: 700;
         }
 
-        .timeline-text {
-            font-size: 13px;
-            color: #ccc;
+        .tempo p {
+            color: #888;
+            font-size: 12px;
         }
 
-        /* =========================
+
+        /* =====================================================
+           FIEL
+        ===================================================== */
+
+        .fiel {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #080808,
+                    #111
+                );
+
+            overflow: hidden;
+        }
+
+        .fiel-grid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+
+            min-height: 500px;
+        }
+
+        .fiel-frase {
+            display: flex;
+            align-items: center;
+
+            padding: 60px;
+
+            background:
+                repeating-linear-gradient(
+                    -45deg,
+                    #111 0,
+                    #111 20px,
+                    #161616 20px,
+                    #161616 40px
+                );
+        }
+
+        .fiel-frase h2 {
+            font-size: clamp(50px, 7vw, 100px);
+
+            line-height: .85;
+
+            letter-spacing: -6px;
+
+            text-transform: uppercase;
+        }
+
+        .fiel-frase h2 span {
+            color: var(--vermelho);
+        }
+
+        .fiel-texto {
+            padding: 70px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .fiel-texto p {
+            color: #aaa;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+        .fiel-texto .assinatura {
+            margin-top: 30px;
+
+            color: white;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
            TÍTULOS
-        ========================= */
+        ===================================================== */
 
-        .titles {
-            background: #f2f2f2;
+        .titulos {
+            background: #f3f3f3;
             color: #080808;
         }
 
-        .titles .section-number {
-            color: #777;
+        .titulos .section-number {
+            color: #c00000;
         }
 
-        .titles-grid {
+        .titulos .section-description {
+            color: #666;
+        }
+
+        .trofeus {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             border-top: 1px solid #ccc;
             border-left: 1px solid #ccc;
         }
 
-        .title-card {
-            min-height: 230px;
+        .trofeu {
+            min-height: 250px;
+
             padding: 35px;
+
             border-right: 1px solid #ccc;
             border-bottom: 1px solid #ccc;
-            transition: .25s;
+
+            transition: .3s;
         }
 
-        .title-card:hover {
-            background: #fff;
+        .trofeu:hover {
+            background: white;
+            transform: translateY(-3px);
         }
 
-        .title-icon {
-            font-size: 12px;
-            font-weight: 800;
-            color: #777;
-            letter-spacing: 1px;
+        .trofeu small {
+            color: #888;
+
+            font-size: 10px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
         }
 
-        .title-card h3 {
-            margin-top: 50px;
-            font-size: 28px;
-            letter-spacing: -1px;
-        }
+        .trofeu h3 {
+            margin-top: 60px;
 
-        .title-card p {
-            margin-top: 7px;
-            color: #777;
-            font-size: 12px;
-        }
-
-        /* =========================
-           ÍDOLOS
-        ========================= */
-
-        .idols {
-            background: var(--black);
-        }
-
-        .idols-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .idol {
-            min-height: 450px;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            padding: 30px;
-            overflow: hidden;
-            background: var(--black-3);
-        }
-
-        .idol::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                transparent 35%,
-                rgba(0,0,0,.95)
-            );
-            z-index: 1;
-        }
-
-        .idol-image {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            filter: grayscale(100%);
-            transition: transform .5s ease, filter .5s ease;
-        }
-
-        .idol:hover .idol-image {
-            transform: scale(1.05);
-            filter: grayscale(0%);
-        }
-
-        .idol-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .idol-number {
-            color: #999;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .idol h3 {
-            margin-top: 5px;
             font-size: 30px;
+
             letter-spacing: -1px;
         }
 
-        .idol p {
-            color: #bbb;
+        .trofeu p {
+            margin-top: 8px;
+
+            color: #777;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           ESCUDO
+        ===================================================== */
+
+        .escudo-section {
+            background: #090909;
+
+            text-align: center;
+        }
+
+        .escudo {
+            width: 210px;
+            height: 210px;
+
+            margin: 0 auto 50px;
+
+            border: 7px solid white;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            box-shadow:
+                0 0 0 10px #090909,
+                0 0 0 11px #333;
+        }
+
+        .escudo::before {
+            content: "";
+
+            position: absolute;
+
+            width: 125px;
+            height: 50px;
+
+            top: 55px;
+
+            border-top: 5px solid white;
+            border-bottom: 5px solid white;
+        }
+
+        .escudo .sccp {
+            font-size: 31px;
+            font-weight: 900;
+
+            letter-spacing: -2px;
+        }
+
+        .escudo .ano {
+            margin-top: 15px;
+
+            color: #aaa;
+
             font-size: 12px;
+            font-weight: bold;
+
+            letter-spacing: 4px;
         }
 
-        .socrates {
-            background-image: url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80");
+        .escudo-titulo {
+            font-size: clamp(35px, 5vw, 60px);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            text-transform: uppercase;
         }
 
-        .marcelinho {
-            background-image: url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80");
+        .escudo-subtitulo {
+            max-width: 500px;
+
+            margin: 20px auto 0;
+
+            color: #777;
+
+            font-size: 13px;
+            line-height: 1.8;
         }
 
-        .cassio {
-            background-image: url("https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=900&q=80");
-        }
 
-        /* =========================
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
-            border-top: 1px solid var(--line);
+            border-top: 1px solid #222;
+
             padding: 45px 6%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #777;
-            font-size: 11px;
+
+            color: #666;
+
+            font-size: 10px;
+
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
@@ -496,85 +805,98 @@
             color: white;
         }
 
-        /* =========================
+
+        /* =====================================================
            RESPONSIVO
-        ========================= */
+        ===================================================== */
 
         @media (max-width: 850px) {
-
-            header {
-                padding: 22px 5%;
-            }
 
             nav {
                 display: none;
             }
 
-            .hero-content {
-                padding: 0 6% 70px;
+            .hero {
+                min-height: 750px;
             }
 
             .hero h1 {
                 letter-spacing: -4px;
             }
 
-            .stats {
+            .hero::after {
+                width: 300px;
+                height: 300px;
+
+                right: -100px;
+            }
+
+            .numeros {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .stat:nth-child(2) {
+            .numero:nth-child(2) {
                 border-right: none;
             }
 
-            .section-header {
+            .historia-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-            }
 
-            .history-grid {
-                grid-template-columns: 1fr;
                 gap: 60px;
             }
 
-            .titles-grid {
+            .fiel-grid {
                 grid-template-columns: 1fr;
             }
 
-            .idols-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .idol {
+            .fiel-frase {
                 min-height: 400px;
             }
 
-            footer {
+            .trofeus {
+                grid-template-columns: 1fr;
+            }
+
+            .section-top {
                 flex-direction: column;
-                gap: 15px;
-                text-align: center;
+
+                gap: 25px;
             }
         }
 
-        @media (max-width: 500px) {
 
-            .hero h1 {
-                font-size: 54px;
+        @media (max-width: 550px) {
+
+            .topbar {
+                display: none;
             }
 
-            .hero-description {
+            header {
+                height: 75px;
+            }
+
+            .hero {
+                min-height: 700px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero-text {
                 font-size: 13px;
             }
 
-            .hero-bottom {
+            .hero-buttons {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .stats {
+            .numeros {
                 grid-template-columns: 1fr;
             }
 
-            .stat {
+            .numero {
                 border-right: none;
                 border-bottom: 1px solid #ddd;
             }
@@ -586,61 +908,124 @@
             .section-title {
                 letter-spacing: -2px;
             }
+
+            .fiel-frase {
+                padding: 40px;
+            }
+
+            .fiel-texto {
+                padding: 40px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- HEADER -->
+
+    <!-- =====================================================
+         BARRA SUPERIOR
+    ====================================================== -->
+
+    <div class="topbar">
+
+        <span>Sport Club Corinthians Paulista</span>
+
+        <span>Desde 1910</span>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
     <header>
 
-        <a href="#" class="logo">
-            <span class="logo-symbol">SCCP</span>
-            <span class="logo-text">CORINTHIANS</span>
+        <a href="#" class="marca">
+
+            <div class="mini-escudo">
+                SCCP
+            </div>
+
+            <strong>CORINTHIANS</strong>
+
         </a>
 
+
         <nav>
+
             <a href="#historia">História</a>
+
+            <a href="#fiel">A Fiel</a>
+
             <a href="#titulos">Títulos</a>
-            <a href="#idolos">Ídolos</a>
+
+            <a href="#identidade">Identidade</a>
+
         </nav>
 
     </header>
 
 
-    <!-- HERO -->
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
     <main>
 
-        <section class="hero" id="inicio">
+        <section class="hero">
 
             <div class="hero-content">
 
-                <div class="hero-label">
+                <div class="hero-small">
+
+                    <span></span>
+
                     Sport Club Corinthians Paulista
+
                 </div>
 
+
                 <h1>
-                    Uma história<br>
-                    que não acaba.
+
+                    Aqui é<br>
+
+                    <em>Corinthians.</em>
+
                 </h1>
 
-                <p class="hero-description">
-                    Mais de um século de futebol, conquistas e uma torcida
-                    que transformou o Corinthians em um dos clubes mais
-                    marcantes do futebol brasileiro.
+
+                <p class="hero-text">
+
+                    Mais de um século de história construído entre
+                    arquibancadas, títulos, ídolos e uma torcida que
+                    transformou o Corinthians em muito mais que um clube.
+
                 </p>
 
-                <div class="hero-bottom">
 
-                    <a href="#historia" class="hero-button">
-                        Conheça a história
+                <div class="hero-buttons">
+
+                    <a href="#historia" class="btn btn-primary">
+
+                        Nossa história
+
                     </a>
 
-                    <a href="#titulos" class="hero-outline">
-                        Ver conquistas
+
+                    <a href="#titulos" class="btn btn-secondary">
+
+                        Conquistas
+
                     </a>
 
                 </div>
@@ -650,139 +1035,180 @@
         </section>
 
 
-        <!-- NÚMEROS -->
+        <!-- FAIXA ALVINEGRA -->
 
-        <div class="stats">
+        <div class="faixa"></div>
 
-            <div class="stat">
-                <div class="stat-number">1910</div>
-                <div class="stat-title">Ano de fundação</div>
+
+        <!-- =====================================================
+             NÚMEROS
+        ====================================================== -->
+
+        <div class="numeros">
+
+            <div class="numero">
+
+                <strong>1910</strong>
+
+                <span>Fundação</span>
+
             </div>
 
-            <div class="stat">
-                <div class="stat-number">7</div>
-                <div class="stat-title">Campeonatos Brasileiros</div>
+
+            <div class="numero">
+
+                <strong>7</strong>
+
+                <span>Brasileiros</span>
+
             </div>
 
-            <div class="stat">
-                <div class="stat-number">2</div>
-                <div class="stat-title">Mundiais de Clubes</div>
+
+            <div class="numero">
+
+                <strong>2</strong>
+
+                <span>Mundiais</span>
+
             </div>
 
-            <div class="stat">
-                <div class="stat-number">1</div>
-                <div class="stat-title">Libertadores</div>
+
+            <div class="numero">
+
+                <strong>1</strong>
+
+                <span>Libertadores</span>
+
             </div>
 
         </div>
 
 
-        <!-- HISTÓRIA -->
+        <!-- =====================================================
+             HISTÓRIA
+        ====================================================== -->
 
-        <section class="history" id="historia">
+        <section class="historia" id="historia">
 
             <div class="container">
 
-                <div class="section-header">
+                <div class="section-top">
 
-                    <div class="section-number">
+                    <span class="section-number">
                         01 / HISTÓRIA
-                    </div>
+                    </span>
 
                     <div>
+
                         <h2 class="section-title">
-                            Nascido para<br>
-                            ser do povo.
+
+                            Uma história<br>
+                            alvinegra.
+
                         </h2>
 
-                        <p class="section-intro">
-                            A história do Corinthians começou nas ruas de São
-                            Paulo e cresceu até se tornar parte importante da
-                            cultura esportiva brasileira.
+                        <p class="section-description">
+
+                            O Corinthians nasceu no Bom Retiro,
+                            em São Paulo, em 1º de setembro de 1910.
+
                         </p>
+
                     </div>
 
                 </div>
 
 
-                <div class="history-grid">
+                <div class="historia-grid">
 
-                    <div class="history-text">
+
+                    <div class="historia-principal">
 
                         <p>
-                            Em 1º de setembro de 1910, um grupo de trabalhadores
-                            fundou o Sport Club Corinthians Paulista no bairro
-                            do Bom Retiro, em São Paulo.
+
+                            Cinco operários decidiram fundar um clube
+                            que representasse o futebol popular de São Paulo.
+                            Nascia ali o Sport Club Corinthians Paulista.
+
                         </p>
 
-                        <p>
-                            Desde os primeiros anos, o clube construiu uma
-                            identidade ligada à sua torcida e à ideia de
-                            representar diferentes camadas da população.
-                        </p>
 
                         <p>
-                            Ao longo das décadas, essa identidade acompanhou
-                            grandes gerações de jogadores e momentos que
-                            marcaram a história do futebol brasileiro.
+
+                            Ao longo de mais de um século, o clube passou
+                            por diferentes gerações, conquistou títulos
+                            nacionais e internacionais e construiu uma
+                            identidade única com seus torcedores.
+
+                        </p>
+
+
+                        <p>
+
+                            A camisa preta e branca se tornou um dos símbolos
+                            mais reconhecidos do futebol brasileiro. Dentro
+                            e fora do campo, o Corinthians passou a fazer
+                            parte da história esportiva e cultural do país.
+
                         </p>
 
                     </div>
 
 
-                    <div class="history-side">
-
-                        <div class="timeline-item">
-
-                            <div class="timeline-year">
-                                1910
-                            </div>
-
-                            <div class="timeline-text">
-                                Fundação do Sport Club Corinthians Paulista.
-                            </div>
-
-                        </div>
+                    <div class="linha-do-tempo">
 
 
-                        <div class="timeline-item">
+                        <div class="tempo">
 
-                            <div class="timeline-year">
-                                1977
-                            </div>
+                            <strong>1910</strong>
 
-                            <div class="timeline-text">
-                                Conquista do Campeonato Paulista após longo
-                                período sem o título estadual.
-                            </div>
+                            <p>
+                                Fundação do Corinthians no Bom Retiro.
+                            </p>
 
                         </div>
 
 
-                        <div class="timeline-item">
+                        <div class="tempo">
 
-                            <div class="timeline-year">
-                                1990
-                            </div>
+                            <strong>1977</strong>
 
-                            <div class="timeline-text">
-                                Primeiro Campeonato Brasileiro conquistado
-                                pelo clube.
-                            </div>
+                            <p>
+                                Conquista do Campeonato Paulista.
+                            </p>
 
                         </div>
 
 
-                        <div class="timeline-item">
+                        <div class="tempo">
 
-                            <div class="timeline-year">
-                                2012
-                            </div>
+                            <strong>1990</strong>
 
-                            <div class="timeline-text">
-                                Libertadores invicta e segundo Mundial de
-                                Clubes da FIFA.
-                            </div>
+                            <p>
+                                Primeiro Campeonato Brasileiro.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tempo">
+
+                            <strong>2000</strong>
+
+                            <p>
+                                Primeiro Mundial de Clubes da FIFA.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tempo">
+
+                            <strong>2012</strong>
+
+                            <p>
+                                Libertadores invicta e segundo Mundial.
+                            </p>
 
                         </div>
 
@@ -795,43 +1221,112 @@
         </section>
 
 
-        <!-- TÍTULOS -->
+        <!-- =====================================================
+             FIEL
+        ====================================================== -->
 
-        <section class="titles" id="titulos">
+        <section class="fiel" id="fiel">
+
+            <div class="fiel-grid">
+
+
+                <div class="fiel-frase">
+
+                    <h2>
+
+                        A<br>
+
+                        <span>Fiel</span><br>
+
+                        nunca<br>
+
+                        abandona.
+
+                    </h2>
+
+                </div>
+
+
+                <div class="fiel-texto">
+
+                    <p>
+
+                        O apelido "Fiel" representa a relação histórica
+                        entre o Corinthians e seus torcedores.
+
+                    </p>
+
+
+                    <p style="margin-top:20px;">
+
+                        Seja nos grandes estádios ou nos momentos mais
+                        difíceis, a torcida se tornou um dos elementos
+                        fundamentais da identidade corinthiana.
+
+                    </p>
+
+
+                    <div class="assinatura">
+
+                        — Fiel Torcida
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TÍTULOS
+        ====================================================== -->
+
+        <section class="titulos" id="titulos">
 
             <div class="container">
 
-                <div class="section-header">
 
-                    <div class="section-number">
+                <div class="section-top">
+
+                    <span class="section-number">
                         02 / CONQUISTAS
-                    </div>
+                    </span>
 
                     <div>
+
                         <h2 class="section-title">
-                            Uma sala de<br>
-                            troféus histórica.
+
+                            Capítulos<br>
+                            de glória.
+
                         </h2>
 
-                        <p class="section-intro">
-                            Entre títulos nacionais e internacionais, algumas
-                            conquistas se tornaram capítulos fundamentais da
-                            história alvinegra.
+                        <p class="section-description">
+
+                            Alguns dos principais troféus conquistados
+                            pelo Corinthians ao longo de sua história.
+
                         </p>
+
                     </div>
 
                 </div>
 
 
-                <div class="titles-grid">
+                <div class="trofeus">
 
-                    <div class="title-card">
 
-                        <div class="title-icon">
+                    <div class="trofeu">
+
+                        <small>
                             CAMPEONATO BRASILEIRO
-                        </div>
+                        </small>
 
-                        <h3>7 títulos</h3>
+                        <h3>
+                            7 títulos
+                        </h3>
 
                         <p>
                             1990 · 1998 · 1999 · 2005 · 2011 · 2015 · 2017
@@ -840,13 +1335,15 @@
                     </div>
 
 
-                    <div class="title-card">
+                    <div class="trofeu">
 
-                        <div class="title-icon">
+                        <small>
                             COPA LIBERTADORES
-                        </div>
+                        </small>
 
-                        <h3>1 título</h3>
+                        <h3>
+                            1 título
+                        </h3>
 
                         <p>
                             2012
@@ -855,13 +1352,15 @@
                     </div>
 
 
-                    <div class="title-card">
+                    <div class="trofeu">
 
-                        <div class="title-icon">
+                        <small>
                             MUNDIAL DE CLUBES
-                        </div>
+                        </small>
 
-                        <h3>2 títulos</h3>
+                        <h3>
+                            2 títulos
+                        </h3>
 
                         <p>
                             2000 · 2012
@@ -870,13 +1369,15 @@
                     </div>
 
 
-                    <div class="title-card">
+                    <div class="trofeu">
 
-                        <div class="title-icon">
+                        <small>
                             COPA DO BRASIL
-                        </div>
+                        </small>
 
-                        <h3>3 títulos</h3>
+                        <h3>
+                            3 títulos
+                        </h3>
 
                         <p>
                             1995 · 2002 · 2009
@@ -885,28 +1386,32 @@
                     </div>
 
 
-                    <div class="title-card">
+                    <div class="trofeu">
 
-                        <div class="title-icon">
+                        <small>
                             CAMPEONATO PAULISTA
-                        </div>
+                        </small>
 
-                        <h3>30 títulos</h3>
+                        <h3>
+                            30 títulos
+                        </h3>
 
                         <p>
-                            Conquistas estaduais ao longo da história.
+                            Principais conquistas estaduais.
                         </p>
 
                     </div>
 
 
-                    <div class="title-card">
+                    <div class="trofeu">
 
-                        <div class="title-icon">
+                        <small>
                             RECOPA SUL-AMERICANA
-                        </div>
+                        </small>
 
-                        <h3>1 título</h3>
+                        <h3>
+                            1 título
+                        </h3>
 
                         <p>
                             2013
@@ -921,101 +1426,42 @@
         </section>
 
 
-        <!-- ÍDOLOS -->
+        <!-- =====================================================
+             IDENTIDADE
+        ====================================================== -->
 
-        <section class="idols" id="idolos">
+        <section class="escudo-section" id="identidade">
 
             <div class="container">
 
-                <div class="section-header">
 
-                    <div class="section-number">
-                        03 / ÍDOLOS
-                    </div>
+                <div class="escudo">
 
-                    <div>
-                        <h2 class="section-title">
-                            Nomes que<br>
-                            ficaram na história.
-                        </h2>
+                    <span class="sccp">
+                        SCCP
+                    </span>
 
-                        <p class="section-intro">
-                            Jogadores que construíram uma relação especial
-                            com o clube e com a Fiel torcida.
-                        </p>
-                    </div>
+                    <span class="ano">
+                        1910
+                    </span>
 
                 </div>
 
 
-                <div class="idols-grid">
+                <h2 class="escudo-titulo">
 
-                    <article class="idol">
+                    Muito além<br>
+                    do futebol.
 
-                        <div class="idol-image socrates"></div>
-
-                        <div class="idol-content">
-
-                            <div class="idol-number">
-                                01
-                            </div>
-
-                            <h3>Sócrates</h3>
-
-                            <p>
-                                Um dos maiores símbolos da história
-                                corinthiana.
-                            </p>
-
-                        </div>
-
-                    </article>
+                </h2>
 
 
-                    <article class="idol">
+                <p class="escudo-subtitulo">
 
-                        <div class="idol-image marcelinho"></div>
+                    Uma camisa. Uma história. Uma torcida.
+                    Uma identidade construída há mais de um século.
 
-                        <div class="idol-content">
-
-                            <div class="idol-number">
-                                02
-                            </div>
-
-                            <h3>Marcelinho</h3>
-
-                            <p>
-                                Ídolo marcado pelos gols e pelas cobranças
-                                de falta.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="idol">
-
-                        <div class="idol-image cassio"></div>
-
-                        <div class="idol-content">
-
-                            <div class="idol-number">
-                                03
-                            </div>
-
-                            <h3>Cássio</h3>
-
-                            <p>
-                                Protagonista de grandes conquistas na história
-                                recente do clube.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
+                </p>
 
             </div>
 
@@ -1024,7 +1470,9 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer>
 
@@ -1037,6 +1485,7 @@
         </span>
 
     </footer>
+
 
 </body>
 </html>
