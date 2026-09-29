@@ -71,5 +71,5 @@ jobs:
           with:
             file: dockerfile
             push: true
-            tags: natybastazini/img_revolucao:1.0
+            tags: natybastazini/img_corinthians:1.0
           
